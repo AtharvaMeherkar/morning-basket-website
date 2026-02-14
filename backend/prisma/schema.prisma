@@ -1,0 +1,209 @@
+// Prisma Schema for MorningBasket Database
+// PostgreSQL Database with production-grade models
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// User model - supports both customers and admins
+model User {
+  id            String         @id @default(uuid())
+  phone         String         @unique
+  name          String?
+  role          Role           @default(CUSTOMER)
+  isVerified    Boolean        @default(false)
+  createdAt     DateTime       @default(now())
+  updatedAt     DateTime       @updatedAt
+  
+  addresses     Address[]
+  subscriptions Subscription[]
+  orders        Order[]
+
+  @@index([phone])
+  @@index([role])
+}
+
+enum Role {
+  CUSTOMER
+  ADMIN
+}
+
+// Society model - serviceable residential areas
+model Society {
+  id              String    @id @default(uuid())
+  name            String
+  area            String
+  city            String    @default("Hyderabad")
+  isActive        Boolean   @default(true)
+  deliveryStartTime String  @default("06:00")
+  deliveryEndTime   String  @default("09:00")
+  createdAt       DateTime  @default(now())
+  updatedAt       DateTime  @updatedAt
+  
+  addresses       Address[]
+
+  @@unique([name, area])
+  @@index([isActive])
+}
+
+// Address model - customer delivery addresses
+model Address {
+  id              String   @id @default(uuid())
+  userId          String
+  societyId       String
+  flatNumber      String
+  tower           String?
+  landmark        String?
+  isDefault       Boolean  @default(false)
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+  
+  user            User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  society         Society  @relation(fields: [societyId], references: [id])
+  orders          Order[]
+
+  @@index([userId])
+  @@index([societyId])
+}
+
+// Basket model - fruit subscription packages
+model Basket {
+  id              String         @id @default(uuid())
+  name            String         @unique
+  description     String
+  contents        String         // JSON string of fruits included
+  idealFamilySize String         // e.g., "2-3 members", "4-5 members"
+  priceDaily      Float
+  priceWeekly     Float
+  priceMonthly    Float
+  isActive        Boolean        @default(true)
+  sortOrder       Int            @default(0)
+  createdAt       DateTime       @default(now())
+  updatedAt       DateTime       @updatedAt
+  
+  subscriptions   Subscription[]
+  orders          Order[]
+
+  @@index([isActive])
+}
+
+// Subscription model - customer basket subscriptions
+model Subscription {
+  id              String             @id @default(uuid())
+  userId          String
+  basketId        String
+  frequency       SubscriptionFrequency
+  status          SubscriptionStatus @default(ACTIVE)
+  startDate       DateTime
+  endDate         DateTime?
+  pausedUntil     DateTime?
+  preferredWindow String             @default("06:00-08:00")
+  createdAt       DateTime           @default(now())
+  updatedAt       DateTime           @updatedAt
+  
+  user            User               @relation(fields: [userId], references: [id], onDelete: Cascade)
+  basket          Basket             @relation(fields: [basketId], references: [id])
+  skippedDates    SkippedDate[]
+
+  @@index([userId])
+  @@index([status])
+  @@index([basketId])
+}
+
+enum SubscriptionFrequency {
+  DAILY
+  ALTERNATE
+}
+
+enum SubscriptionStatus {
+  ACTIVE
+  PAUSED
+  CANCELLED
+  EXPIRED
+}
+
+// SkippedDate model - dates customer wants to skip delivery
+model SkippedDate {
+  id              String       @id @default(uuid())
+  subscriptionId  String
+  date            DateTime
+  createdAt       DateTime     @default(now())
+  
+  subscription    Subscription @relation(fields: [subscriptionId], references: [id], onDelete: Cascade)
+
+  @@unique([subscriptionId, date])
+  @@index([date])
+}
+
+// Order model - daily orders generated from subscriptions
+model Order {
+  id              String      @id @default(uuid())
+  userId          String
+  basketId        String
+  addressId       String
+  orderDate       DateTime    // Delivery date
+  status          OrderStatus @default(PENDING)
+  isLocked        Boolean     @default(false)
+  lockedAt        DateTime?
+  deliveredAt     DateTime?
+  notes           String?
+  createdAt       DateTime    @default(now())
+  updatedAt       DateTime    @updatedAt
+  
+  user            User        @relation(fields: [userId], references: [id], onDelete: Cascade)
+  basket          Basket      @relation(fields: [basketId], references: [id])
+  address         Address     @relation(fields: [addressId], references: [id])
+
+  @@unique([userId, orderDate])
+  @@index([orderDate])
+  @@index([status])
+  @@index([isLocked])
+}
+
+enum OrderStatus {
+  PENDING
+  CONFIRMED
+  PREPARING
+  OUT_FOR_DELIVERY
+  DELIVERED
+  CANCELLED
+  SKIPPED
+}
+
+// OTP model - phone verification codes
+model OTP {
+  id        String   @id @default(uuid())
+  phone     String
+  code      String
+  expiresAt DateTime
+  isUsed    Boolean  @default(false)
+  createdAt DateTime @default(now())
+
+  @@index([phone, code])
+  @@index([expiresAt])
+}
+
+// Holiday model - dates when service is paused
+model Holiday {
+  id          String   @id @default(uuid())
+  date        DateTime @unique
+  reason      String?
+  createdAt   DateTime @default(now())
+
+  @@index([date])
+}
+
+// SystemSetting model - global configuration
+model SystemSetting {
+  id        String   @id @default(uuid())
+  key       String   @unique
+  value     String
+  updatedAt DateTime @updatedAt
+
+  @@index([key])
+}
