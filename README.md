@@ -1,152 +1,122 @@
-# MorningBasket
+# MorningBasket 🧺
 
-A hyperlocal, subscription-based fresh fruit delivery service. Fresh fruits, hygienically cleaned with ozonated water, delivered every morning.
+> **Fresh fruits, delivered every morning.**  
+> *Cleaned with ozonated water. No cold storage. Just seasonal goodness.*
 
-## Project Structure
+![MorningBasket Hero](frontend/public/images/hero-fruits.png)
 
-```
-Morning Basket Website/
-├── frontend/          # Next.js 14+ application
-│   ├── src/
-│   │   ├── app/       # Pages (App Router)
-│   │   ├── components/# Reusable components
-│   │   └── lib/       # Utilities and API client
-│   └── public/        # Static assets
-│
-├── backend/           # Node.js REST API
-│   ├── src/
-│   │   ├── controllers/
-│   │   ├── middleware/
-│   │   ├── routes/
-│   │   └── utils/
-│   └── prisma/        # Database schema
-│
-└── README.md
-```
+---
 
-## Tech Stack
+## 🌟 About The Project
 
-- **Frontend**: Next.js 14+, Tailwind CSS 4, TypeScript
-- **Backend**: Node.js, Express.js, Prisma ORM
-- **Database**: PostgreSQL
-- **Authentication**: OTP-based phone login (JWT)
+**MorningBasket** is a premium, hyperlocal daily fruit subscription service designed to make healthy habits effortless. We believe mornings should be simple, fresh, and chemical-free.
 
-## Getting Started
+Unlike traditional grocery apps, we operate on a **pre-order model**:
+- **Harvested** based on demand.
+- **Ozone-washed** to remove 99% of surface chemicals.
+- **Delivered** to your doorstep before 7:00 AM.
+- **No Cold Storage** involved.
+
+---
+
+## 🍎 Our Baskets
+
+We offer curated baskets tailored to different family sizes, ensuring zero waste and maximum freshness.
+
+| **Daily Essential** 🧺 | **Family Care** 👨‍👩‍👧 | **Summer Special** ☀️ |
+|:---:|:---:|:---:|
+| ![Daily](frontend/public/images/basket-daily-essentials.png) | ![Family](frontend/public/images/basket-family-care.png) | ![Seasonal](frontend/public/images/basket-seasonal-select.png) |
+| **₹199 / basket** | **₹369 / basket** | **₹449 / basket** |
+| Perfect for couples. <br> Apples, Bananas, Citrus. | Ideal for families of 4. <br> Includes Papaya/Melon. | Seasonal premium picks. <br> Mangoes, Kiwis, etc. |
+
+---
+
+## ✨ Key Features
+
+- **🛡️ Ozone Cleaning**: Every fruit is washed with commercial-grade ozone technology.
+- **⚡ Superfast Morning Delivery**: Optimized logistics for 5 AM - 7 AM delivery slots.
+- **📅 Smart Subscriptions**: Pause, resume, or skip deliveries with a single tap.
+- **🏡 Society-Specific**: We launch society-by-society to ensure density and service quality.
+- **📱 Mobile First**: A seamless mobile web experience built with Next.js.
+- **🔐 Secure Auth**: OTP-based login for a frictionless user experience.
+
+---
+
+## 🛠️ Tech Stack
+
+Built with a focus on performance, scalability, and developer experience.
+
+### **Frontend**
+- **Framework**: [Next.js 14](https://nextjs.org/) (App Router)
+- **Styling**: [Tailwind CSS 4](https://tailwindcss.com/)
+- **Language**: [TypeScript](https://www.typescriptlang.org/)
+- **Icons**: [Lucide React](https://lucide.dev/)
+
+### **Backend**
+- **Runtime**: [Node.js](https://nodejs.org/)
+- **Framework**: [Express.js](https://expressjs.com/)
+- **Database**: [PostgreSQL](https://www.postgresql.org/)
+- **ORM**: [Prisma](https://www.prisma.io/)
+- **Auth**: JWT & OTP Service
+
+---
+
+## 🚀 Getting Started
+
+Follow these steps to set up the project locally.
 
 ### Prerequisites
-
 - Node.js 18+
-- PostgreSQL database
+- PostgreSQL
 - npm or yarn
 
-### Backend Setup
+### Installation
+
+1.  **Clone the repository**
+    ```bash
+    git clone https://github.com/AtharvaMeherkar/morning-basket-website.git
+    cd morning-basket-website
+    ```
+
+2.  **Setup Backend**
+    ```bash
+    cd backend
+    npm install
+    # Configure .env file (see .env.example)
+    npm run db:generate
+    npm run db:push
+    npm run dev
+    ```
+
+3.  **Setup Frontend**
+    ```bash
+    cd frontend
+    npm install
+    npm run dev
+    ```
+
+4.  Open [http://localhost:3000](http://localhost:3000) to view the app!
+
+---
+
+## 📂 Project Structure
 
 ```bash
-cd backend
-
-# Install dependencies
-npm install
-
-# Configure environment
-cp .env.example .env
-# Edit .env with your database URL and secrets
-
-# Generate Prisma client
-npm run db:generate
-
-# Push schema to database
-npm run db:push
-
-# Start development server
-npm run dev
+MorningBasket/
+├── frontend/          # Next.js Application
+│   ├── src/app/       # App Router Pages
+│   ├── public/        # Images & Assets
+│   └── ...
+├── backend/           # Node.js API
+│   ├── src/routes/    # API Routes
+│   ├── prisma/        # Database Schema
+│   └── ...
+└── README.md          # Project Documentation
 ```
 
-### Frontend Setup
+---
 
-```bash
-cd frontend
+## 📝 License
 
-# Install dependencies (already done)
-npm install
-
-# Start development server
-npm run dev
-```
-
-### Environment Variables
-
-**Backend (.env):**
-```
-DATABASE_URL="postgresql://user:password@localhost:5432/morningbasket"
-JWT_SECRET="your-secure-secret-key"
-JWT_EXPIRES_IN="7d"
-PORT=5000
-NODE_ENV=development
-FRONTEND_URL=http://localhost:3000
-```
-
-**Frontend (.env.local):**
-```
-NEXT_PUBLIC_API_URL=http://localhost:5000/api
-```
-
-## Pages
-
-| Route | Description |
-|-------|-------------|
-| `/` | Homepage with brand story |
-| `/subscriptions` | Fruit basket options |
-| `/login` | OTP-based authentication |
-| `/check-availability` | Society availability checker |
-| `/dashboard` | Customer dashboard |
-| `/admin` | Admin panel |
-
-## API Endpoints
-
-### Authentication
-- `POST /api/auth/send-otp` - Send OTP to phone
-- `POST /api/auth/verify-otp` - Verify OTP and login
-- `POST /api/auth/complete-registration` - Complete profile
-
-### Public
-- `GET /api/public/baskets` - Get available baskets
-- `GET /api/public/societies` - Get serviceable societies
-- `POST /api/public/check-availability` - Check area availability
-
-### Customer (Protected)
-- `GET /api/customer/profile` - Get profile
-- `GET /api/customer/subscription` - Get subscription
-- `POST /api/customer/subscription` - Create subscription
-- `POST /api/customer/subscription/pause` - Pause subscription
-- `POST /api/customer/subscription/resume` - Resume subscription
-- `GET /api/customer/orders/tomorrow` - Get tomorrow's order
-- `POST /api/customer/orders/skip` - Skip a delivery
-
-### Admin (Protected)
-- `GET /api/admin/dashboard` - Dashboard stats
-- `GET /api/admin/orders` - All orders with filters
-- `GET /api/admin/orders/export` - Export CSV
-- `GET /api/admin/sourcing` - Sourcing list
-- `GET /api/admin/packing` - Packing list
-- `PUT /api/admin/baskets/:id/toggle` - Toggle basket
-- `POST /api/admin/holidays` - Add holiday
-- `POST /api/admin/pause-global` - Pause all deliveries
-
-## Design Principles
-
-- **Calm over flashy** - Minimal, clean UI
-- **Routine over speed** - Predictable morning delivery
-- **Trust over discounts** - Quality and hygiene first
-- **Reliability over innovation** - Consistent service
-
-## Phase 1 Scope
-
-- Fresh fruits only (vegetables/flowers coming later)
-- Subscription-based ordering
-- Pre-order model (order by evening for next morning)
-- Manual UPI payments
-- Selected residential societies only
-
-## License
-
-Private - MorningBasket © 2026
+Private Property of **MorningBasket** © 2026.  
+*Designed & Developed with ❤️ for better mornings.*
