@@ -13,6 +13,7 @@ const quickLinks = [
   { href: "/check-availability", label: "Check Your Area" },
   { href: "/about", label: "About Us" },
   { href: "/faq", label: "FAQ" },
+  { href: "/refund-policy", label: "Refund Policy" },
 ];
 
 export default function Footer() {
@@ -156,8 +157,8 @@ export default function Footer() {
             }}>
               <span style={{ fontSize: '1.1rem' }}>📍</span>
               <span>
-                Pune, Maharashtra<br/>
-                411037
+                Bibewadi, Kondhwa, Market Yard, Gangadham & more<br/>
+                Pune, Maharashtra
               </span>
             </p>
           </div>

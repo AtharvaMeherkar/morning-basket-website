@@ -14,47 +14,36 @@ const baskets = [
     name: "Daily Essential Basket",
     tagline: "For your daily fruit routine",
     price: 199,
-    for: "Small families",
+    for: "Individuals/Couples",
     popular: false,
-    image: "/images/basket-daily-essentials.png",
-    fruits: [
-      { emoji: "🍎", name: "Apple", qty: "2 pcs" },
-      { emoji: "🍊", name: "Orange", qty: "2 pcs" },
-      { emoji: "🍐", name: "Pomegranate", qty: "2 pcs" },
-      { emoji: "🍌", name: "Banana", qty: "4 pcs" }
-    ]
+    image: "/images/Daily Essential Basket.png"
+  },
+  {
+    id: "small-family-care",
+    name: "Small Family Care Basket",
+    tagline: "Just right for small families",
+    price: 249,
+    for: "Small families",
+    popular: true,
+    image: "/images/Small Family Care Basket.png"
   },
   {
     id: "family-care",
     name: "Family Care Basket",
     tagline: "Balanced variety for everyone",
-    price: 369,
+    price: 379,
     for: "Medium–large families",
-    popular: true,
-    image: "/images/basket-family-care.png",
-    fruits: [
-      { emoji: "🍎", name: "Apple", qty: "3 pcs" },
-      { emoji: "🍊", name: "Orange", qty: "3 pcs" },
-      { emoji: "🍌", name: "Banana", qty: "6 pcs" },
-      { emoji: "🍐", name: "Pomegranate", qty: "3 pcs" },
-      { emoji: "🍇", name: "Seasonal Fruit", qty: "500g" }
-    ]
+    popular: false,
+    image: "/images/Family Care Basket.png"
   },
   {
     id: "summer-special",
     name: "Summer Special Basket",
     tagline: "Refreshing summer favourites",
-    price: 449,
+    price: 299,
     for: "Variety seekers",
     popular: false,
-    image: "/images/basket-seasonal-select.png",
-    fruits: [
-      { emoji: "🍉", name: "Watermelon", qty: "2–3 kg" },
-      { emoji: "🍈", name: "Muskmelon", qty: "½ kg" },
-      { emoji: "🍇", name: "Grapes", qty: "500g" },
-      { emoji: "🐉", name: "Dragon Fruit", qty: "2 pcs" },
-      { emoji: "🥝", name: "Kiwi", qty: "3 pcs" }
-    ]
+    image: "/images/Summer Special Basket.png"
   }
 ];
 
@@ -121,21 +110,22 @@ export default function HomePage() {
             style={{
               position: 'absolute',
               top: '50%',
-              left: '-180px',
+              left: '-150px',
               transform: 'translateY(-50%) rotate(15deg)',
               width: '700px',
               height: '700px',
               pointerEvents: 'none',
-              zIndex: 1,
+              zIndex: 0,
               mixBlendMode: 'multiply',
-              filter: 'brightness(1.05) contrast(1.05)'
+              filter: 'brightness(1.05) contrast(1.05)',
+              opacity: 0.8
             }}
           >
             <Image 
               src="/images/newimage.png"
               alt="Fresh fruits spilling from bag"
-              width={700}
-              height={700}
+              width={900}
+              height={900}
               style={{ 
                 width: '100%', 
                 height: '100%', 
@@ -150,19 +140,20 @@ export default function HomePage() {
             style={{
               position: 'absolute',
               top: '50%',
-              right: '-150px',
+              right: '-100px',
               transform: 'translateY(-50%)',
               width: '700px',
               height: '700px',
               pointerEvents: 'none',
-              zIndex: 1
+              zIndex: 0,
+              opacity: 0.8
             }}
           >
             <Image 
               src="/images/fruit-bowl-bg.png"
               alt="Fresh fruit bowl"
-              width={700}
-              height={700}
+              width={800}
+              height={800}
               style={{ 
                 width: '100%', 
                 height: '100%', 
@@ -172,14 +163,14 @@ export default function HomePage() {
             />
           </div>
           
-          <div className="container">
+          <div className="container" style={{ position: 'relative', zIndex: 10 }}>
             <div style={{
               display: 'grid',
               gridTemplateColumns: '1fr',
               gap: '3rem',
               alignItems: 'center'
             }}>
-              <div className="text-center" style={{ maxWidth: '700px', margin: '0 auto' }}>
+              <div className="text-center" style={{ maxWidth: '800px', margin: '0 auto', background: 'rgba(255,255,255,0.4)', padding: '2rem', borderRadius: 'var(--mb-radius-xl)', backdropFilter: 'blur(3px)' }}>
                 <div 
                   className="badge badge-olive mb-3"
                   style={{ 
@@ -360,6 +351,150 @@ export default function HomePage() {
           </div>
         </section>
 
+        {/* How It Works - Photo-Driven Premium Feel */}
+        <section className="section" style={{ background: 'var(--mb-cream-50)', padding: '6rem 0', position: 'relative' }}>
+          <div className="container" style={{ position: 'relative', zIndex: 1 }}>
+            <div className="text-center mb-5" style={{ marginBottom: '4rem' }}>
+              <span style={{ display: 'block', color: 'var(--mb-olive-500)', fontSize: '0.9rem', fontWeight: 'bold', textTransform: 'uppercase', letterSpacing: '2px', marginBottom: '1rem' }}>The Journey</span>
+              <h2 style={{ fontSize: 'clamp(2.5rem, 5vw, 3.5rem)', color: 'var(--mb-olive-800)', fontWeight: '800', marginBottom: '1rem', lineHeight: 1.1 }}>How It Works</h2>
+              <p style={{ color: 'var(--mb-text-secondary)', fontSize: '1.2rem', maxWidth: '600px', margin: '0 auto' }}>From local farms to your kitchen table in less than 12 hours.</p>
+            </div>
+
+            <div style={{
+              display: 'grid',
+              gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))',
+              gap: '2rem',
+              maxWidth: '1280px',
+              margin: '0 auto'
+            }}>
+              {[
+                {
+                  step: '01',
+                  title: 'Order by 10 PM.',
+                  desc: 'Choose your fresh fruits on our website before you go to sleep.',
+                  img: '/images/Order%20by%2010%20PM.png'
+                },
+                {
+                  step: '02',
+                  title: 'Fresh at 4 AM.',
+                  desc: 'We buy directly from local farms before sunrise. Only the best fruit makes the cut.',
+                  img: '/images/Fresh%20at%204%20AM.png'
+                },
+                {
+                  step: '03',
+                  title: 'Ozone Cleansed.',
+                  desc: 'Every piece is 100% hygienically washed in an ozone bath to remove all impurities and packed safely.',
+                  img: '/images/Ozone%20Cleansed.png'
+                },
+                {
+                  step: '04',
+                  title: 'Home by 8 AM.',
+                  desc: 'Your impeccably clean, ready-to-eat fruit basket is waiting at your door before breakfast.',
+                  img: '/images/Home%20by%208%20AM.png'
+                }
+              ].map((item, i) => (
+                <div key={i} className="hover-lift" style={{
+                  background: 'white',
+                  borderRadius: '16px',
+                  overflow: 'hidden',
+                  boxShadow: '0 10px 40px rgba(45, 97, 78, 0.06)',
+                  border: '1px solid var(--mb-cream-200)',
+                  display: 'flex',
+                  flexDirection: 'column',
+                  transition: 'transform 0.4s ease, box-shadow 0.4s ease'
+                }}>
+                  {/* Photo Area */}
+                  <div style={{ 
+                    position: 'relative', 
+                    width: '100%', 
+                    aspectRatio: '4/3', 
+                    overflow: 'hidden' 
+                  }}>
+                    <img 
+                      src={item.img} 
+                      alt={item.title}
+                      style={{ 
+                        width: '100%', 
+                        height: '100%', 
+                        objectFit: 'cover',
+                        display: 'block'
+                      }} 
+                    />
+                    {/* Dark gradient overlay at bottom of photo for text contrast if needed, or just visual weight */}
+                    <div style={{
+                      position: 'absolute',
+                      bottom: 0, left: 0, right: 0,
+                      height: '50%',
+                      background: 'linear-gradient(to top, rgba(0,0,0,0.4) 0%, transparent 100%)',
+                      pointerEvents: 'none'
+                    }} />
+                    
+                    {/* Step Number Badge overlapping photo */}
+                    <div style={{
+                      position: 'absolute',
+                      bottom: '1.5rem',
+                      left: '2rem',
+                      background: 'white',
+                      color: 'var(--mb-olive-800)',
+                      padding: '0.5rem 1rem',
+                      borderRadius: '8px',
+                      fontWeight: 'bold',
+                      fontSize: '1rem',
+                      boxShadow: '0 4px 12px rgba(0,0,0,0.1)'
+                    }}>
+                      Step {item.step}
+                    </div>
+                  </div>
+
+                  {/* Text Content */}
+                  <div style={{ padding: '2.5rem 2rem', flex: 1, display: 'flex', flexDirection: 'column' }}>
+                    <h3 style={{ fontSize: '1.75rem', color: 'var(--mb-olive-800)', fontWeight: 'bold', marginBottom: '1rem', lineHeight: 1.2 }}>
+                      {item.title}
+                    </h3>
+                    <p style={{ color: 'var(--mb-text-secondary)', fontSize: '1.1rem', lineHeight: 1.6, margin: 0 }}>
+                      {item.desc}
+                    </p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Why Choose Us */}
+        <section className="section section-olive" style={{ color: 'white' }}>
+          <div className="container">
+            <div className="text-center mb-4">
+              <h2 style={{ marginBottom: '0.75rem', color: 'white' }}>Why Choose MorningBasket?</h2>
+              <p style={{ maxWidth: '500px', margin: '0 auto', color: 'rgba(255,255,255,0.85)' }}>The better way to buy fruits</p>
+            </div>
+            
+            <div style={{
+              display: 'grid',
+              gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
+              gap: '2rem'
+            }}>
+              {[
+                { title: 'No Cold Storage', desc: 'We never store fruits overnight. You get what was procured the same morning.' },
+                { title: '100% Hygienic', desc: 'Cleaned with ozonated water removing pesticides and bacteria before packing.' },
+                { title: 'Unmatched Convenience', desc: 'No daily cart hassle. Subscribe once, and let us handle your daily fruit nutrition.' }
+              ].map((benefit, i) => (
+                <div key={i} style={{ 
+                  padding: '1.5rem', 
+                  background: 'rgba(255,255,255,0.1)', 
+                  borderRadius: 'var(--mb-radius-lg)', 
+                  border: '1px solid rgba(255,255,255,0.2)' 
+                }}>
+                  <h3 style={{ fontSize: '1.2rem', marginBottom: '0.5rem', color: 'white', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                    <span style={{ fontSize: '1.4rem' }}>✨</span> {benefit.title}
+                  </h3>
+                  <p style={{ fontSize: '0.95rem', color: 'rgba(255,255,255,0.85)', margin: 0, lineHeight: '1.5' }}>{benefit.desc}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
         {/* Stats */}
         <section 
           className="section"
@@ -406,41 +541,28 @@ export default function HomePage() {
           </div>
         </section>
 
-        {/* Final CTA */}
-        <section className="section section-olive">
-          <div className="container text-center">
-            <h2 style={{ color: 'white', marginBottom: '1rem' }}>
-              Start your fresh morning routine
-            </h2>
-            <p style={{ 
-              color: 'rgba(255,255,255,0.85)', 
-              maxWidth: '500px', 
-              margin: '0 auto 2rem',
-              fontSize: '1.1rem'
-            }}>
-              Try for 3 days. No lock-in. Cancel anytime.
+        {/* Our Promise */}
+        <section className="section" style={{ background: 'var(--mb-cream-200)', textAlign: 'center' }}>
+          <div className="container">
+            <h2 style={{ marginBottom: '1.25rem' }}>Our Promise</h2>
+            <p style={{ maxWidth: '650px', margin: '0 auto 2rem', fontSize: '1.1rem', lineHeight: '1.6', color: 'var(--mb-text-secondary)' }}>
+              We promise to never compromise on freshness or hygiene. Your health and satisfaction are our top priorities. We believe that a fresh morning leads to a beautiful day.
+              <br /><br />
+              <strong style={{ fontSize: '1.25rem', color: 'var(--mb-olive-700)' }}>Ready to experience freshness?</strong>
             </p>
-            <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap' }}>
-              <Link href="/subscriptions" className="btn btn-lg" style={{ 
-                background: 'white', 
-                color: 'var(--mb-olive-700)' 
-              }}>
-                Start 3-day trial
-              </Link>
-              <a 
-                href="https://wa.me/918698292415?text=Hi!%20I%20want%20to%20try%20MorningBasket"
-                target="_blank"
-                rel="noopener"
-                className="btn btn-lg"
-                style={{ 
-                  background: 'rgba(255,255,255,0.15)',
-                  color: 'white',
-                  border: '1.5px solid rgba(255,255,255,0.3)'
-                }}
-              >
-                Chat on WhatsApp
-              </a>
-            </div>
+            
+            <a 
+              href="https://wa.me/918698292415?text=Hi!%20I%20want%20to%20experience%20freshness"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn btn-whatsapp btn-lg"
+              style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem', padding: '1rem 2rem' }}
+            >
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+              </svg>
+              Chat on WhatsApp
+            </a>
           </div>
         </section>
       </main>

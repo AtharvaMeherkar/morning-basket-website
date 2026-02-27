@@ -15,52 +15,67 @@ const baskets = [
     tagline: "For your daily fruit routine",
     description: "Perfect for small families who want fresh fruits every morning. A balanced mix of everyday favourites.",
     price: 199,
-    for: "Small families",
+    for: "Individuals/Couples",
     fruits: [
-      { emoji: "🍎", name: "Apple", qty: "2 pcs" },
-      { emoji: "🍊", name: "Orange", qty: "2 pcs" },
-      { emoji: "🍐", name: "Pomegranate", qty: "2 pcs" },
-      { emoji: "🍌", name: "Banana", qty: "4 pcs" }
+      { name: "Apple", qty: "2 pcs" },
+      { name: "Orange", qty: "2 pcs" },
+      { name: "Muskmelon", qty: "1 pc" },
+      { name: "Banana", qty: "4 pcs" }
     ],
     popular: false,
     color: "var(--mb-olive-100)",
-    image: "/images/basket-daily-essentials.png"
+    image: "/images/Daily Essential Basket.png"
+  },
+  {
+    id: "small-family-care",
+    name: "Small Family Care Basket",
+    tagline: "Just right for small families",
+    description: "A well-rounded selection designed for a small family's daily vitamins.",
+    price: 249,
+    for: "Small families",
+    fruits: [
+      { name: "Apple", qty: "2 pcs" },
+      { name: "Orange", qty: "2 pcs" },
+      { name: "Pomegranate", qty: "2 pcs" },
+      { name: "Banana", qty: "4 pcs" }
+    ],
+    popular: true,
+    color: "var(--mb-olive-200)",
+    image: "/images/Small Family Care Basket.png"
   },
   {
     id: "family-care",
     name: "Family Care Basket",
     tagline: "Balanced variety for everyone",
     description: "Our most loved basket. Generous portions for families who share fruit together.",
-    price: 369,
+    price: 379,
     for: "Medium–large families",
     fruits: [
-      { emoji: "🍎", name: "Apple", qty: "3 pcs" },
-      { emoji: "🍊", name: "Orange", qty: "3 pcs" },
-      { emoji: "🍌", name: "Banana", qty: "6 pcs" },
-      { emoji: "🍐", name: "Pomegranate", qty: "3 pcs" },
-      { emoji: "🍇", name: "Seasonal Fruit", qty: "500g" }
+      { name: "Apple", qty: "3 pcs" },
+      { name: "Orange", qty: "3 pcs" },
+      { name: "Banana", qty: "6 pcs" },
+      { name: "Pomegranate", qty: "2 pcs" },
+      { name: "Seasonal Fruit", qty: "500g" }
     ],
-    popular: true,
-    color: "var(--mb-olive-200)",
-    image: "/images/basket-family-care.png"
+    popular: false,
+    color: "var(--mb-cream-200)",
+    image: "/images/Family Care Basket.png"
   },
   {
     id: "summer-special",
     name: "Summer Special Basket",
     tagline: "Refreshing summer favourites",
     description: "Beat the heat with our refreshing summer selection. Curated with the freshest seasonal picks.",
-    price: 449,
+    price: 299,
     for: "Variety seekers",
     fruits: [
-      { emoji: "🍉", name: "Watermelon", qty: "2–3 kg" },
-      { emoji: "🍈", name: "Muskmelon", qty: "½ kg" },
-      { emoji: "🍇", name: "Grapes", qty: "500g" },
-      { emoji: "🐉", name: "Dragon Fruit", qty: "2 pcs" },
-      { emoji: "🥝", name: "Kiwi", qty: "3 pcs" }
+      { name: "Watermelon", qty: "1 pc" },
+      { name: "Muskmelon", qty: "2 pcs" },
+      { name: "Green Grapes", qty: "500g" }
     ],
     popular: false,
     color: "var(--mb-cream-300)",
-    image: "/images/basket-seasonal-select.png"
+    image: "/images/Summer Special Basket.png"
   }
 ];
 
