@@ -42,6 +42,15 @@ We offer curated baskets tailored to different family sizes, ensuring zero waste
 
 ---
 
+## 🎨 Recent Frontend Updates (Feb 2026)
+
+- **Redesigned "How It Works" Journey**: Upgraded from simple icons to a premium, 4-step photo-driven HD layout (Order ➔ Farm Procurement ➔ Ozone Cleansing ➔ Doorstep Delivery).
+- **New Pages**: Added comprehensive **Refund Policy** and detailed **About Us** pages.
+- **Visual Enhancements**: Added "Why Choose Us" and "Our Promise" trust-building sections to the homepage.
+- **Brand Consistency**: Applied premium organic styling (olive greens, clean creams, soft shadows) across all new components.
+
+---
+
 ## 🛠️ Tech Stack
 
 Built with a focus on performance, scalability, and developer experience.
