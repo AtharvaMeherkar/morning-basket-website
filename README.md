@@ -19,35 +19,41 @@ Unlike traditional grocery apps, we operate on a **pre-order model**:
 
 ---
 
-## 🍎 Our Baskets
+## 🍎 Our Curated Baskets
 
-We offer curated baskets tailored to different family sizes, ensuring zero waste and maximum freshness.
+We offer carefully curated, fixed baskets tailored to different family sizes, eliminating daily cart building and decision fatigue.
 
-| **Daily Essential** 🧺 | **Family Care** 👨‍👩‍👧 | **Summer Special** ☀️ |
-|:---:|:---:|:---:|
-| ![Daily](frontend/public/images/basket-daily-essentials.png) | ![Family](frontend/public/images/basket-family-care.png) | ![Seasonal](frontend/public/images/basket-seasonal-select.png) |
-| **₹199 / basket** | **₹369 / basket** | **₹449 / basket** |
-| Perfect for couples. <br> Apples, Bananas, Citrus. | Ideal for families of 4. <br> Includes Papaya/Melon. | Seasonal premium picks. <br> Mangoes, Kiwis, etc. |
+| **Daily Essential** 🧺 | **Small Family Care** 👨‍👩‍👧 | **Family Care** 👨‍👩‍👧‍👦 | **Summer Special** ☀️ |
+|:---:|:---:|:---:|:---:|
+| ![Daily](frontend/public/images/Daily%20Essential%20Basket.png) | ![Small Family](frontend/public/images/Small%20Family%20Care%20Basket.png) | ![Family](frontend/public/images/Family%20Care%20Basket.png) | ![Seasonal](frontend/public/images/Summer%20Special%20Basket.png) |
+| **₹199 / basket** | **₹249 / basket** | **₹379 / basket** | **₹299 / basket** |
+| Perfect for individuals or couples. <br> Essential daily fruits. | Ideal for small families. <br> Balanced mix. | For medium-large families. <br> Maximum variety. | Refreshing premium picks. <br> Seasonal favourites. |
 
 ---
 
 ## ✨ Key Features
 
-- **🛡️ Ozone Cleaning**: Every fruit is washed with commercial-grade ozone technology.
-- **⚡ Superfast Morning Delivery**: Optimized logistics for 5 AM - 7 AM delivery slots.
-- **📅 Smart Subscriptions**: Pause, resume, or skip deliveries with a single tap.
-- **🏡 Society-Specific**: We launch society-by-society to ensure density and service quality.
+- **🛡️ Ozone Cleaning**: Every fruit is washed in a 100% hygienic ozone bath to remove pesticides, bacteria, and impurities.
+- **⚡ Superfast Morning Delivery**: Impeccably clean fruit baskets at your door between 6 AM - 10 AM, ready for breakfast.
+- **📅 Smart Subscriptions**: Fixed baskets with flexible scheduling (daily, alternate days).
+- **📦 No Cold Storage**: Purchased fresh from local farms at 4 AM, delivered by 8 AM. Never stored overnight.
 - **📱 Mobile First**: A seamless mobile web experience built with Next.js.
-- **🔐 Secure Auth**: OTP-based login for a frictionless user experience.
 
 ---
 
-## 🎨 Recent Frontend Updates (Feb 2026)
+## 🎨 Recent Major Updates (Feb 2026)
 
-- **Redesigned "How It Works" Journey**: Upgraded from simple icons to a premium, 4-step photo-driven HD layout (Order ➔ Farm Procurement ➔ Ozone Cleansing ➔ Doorstep Delivery).
-- **New Pages**: Added comprehensive **Refund Policy** and detailed **About Us** pages.
-- **Visual Enhancements**: Added "Why Choose Us" and "Our Promise" trust-building sections to the homepage.
-- **Brand Consistency**: Applied premium organic styling (olive greens, clean creams, soft shadows) across all new components.
+- **Completely Redesigned "How It Works" Journey**: We transitioned from basic icons to a stunning, 4-step photo-driven HD layout that visually tells our story:
+  - **Step 1 (Order by 10 PM)**: Clean, catalogue-style ordering UX.
+  - **Step 2 (Fresh at 4 AM)**: Authentic sunrise farm procurement imagery.
+  - **Step 3 (Ozone Cleansed)**: Visualizing our rigorous splash-cleaning hygiene process.
+  - **Step 4 (Home by 8 AM)**: A beautiful, ready-to-eat morning breakfast experience.
+- **Basket Lineup & Pricing Overhaul**: Updated pricing and imagery for all 4 primary baskets, reflecting current offerings (Starting at ₹199).
+- **New Core Pages Added**: 
+  - Comprehensive **Refund Policy** page for checkout trust.
+  - Detailed **About Us** page telling the MorningBasket brand story.
+- **Trust Elements**: Added extensive Homepage sections for "Why Choose Us" and a brand "Promise" dedicated to quality without compromise.
+- **Visual Aesthetic Refinement**: Standardized on a premium, organic "farm-to-table" design system (Olive greens, Cream backgrounds, Soft dropping shadows, Clean typography).
 
 ---
 
